@@ -1,0 +1,166 @@
+{
+  "conta": "@stoic.mkt",
+  "horarios": { "manha": "07:00", "noite": "20:00" },
+  "paleta": {
+    "fundo_principal": "#030806",
+    "fundo_dark": "#010101",
+    "verde_neon": "#00FF88",
+    "verde2": "#00CC66",
+    "vermelho": "#FF4444",
+    "dourado": "#E8C830",
+    "branco": "#FFFFFF",
+    "texto2": "#888888"
+  },
+  "dias": [
+    {
+      "dia": 1, "data": "Seg",
+      "manha":  { "pilar": "analise_tecnica",    "tema": "Análise BTC/USDT semanal — viés de alta", "hook": "O mercado abre. Você está preparado?" },
+      "noite":  { "pilar": "quote_estoica",       "tema": "Marco Aurélio — controle da mente",       "hook": "Poder sobre sua mente. Não sobre o preço." }
+    },
+    {
+      "dia": 2, "data": "Ter",
+      "manha":  { "pilar": "setup_priceaction",   "tema": "Setup engolfo de alta no H4",             "hook": "3 condições. 1 entrada. Sem emoção." },
+      "noite":  { "pilar": "gestao_risco",         "tema": "Regra do 1% — nunca arrisque mais",       "hook": "A regra que separa quem fica de quem quebra." }
+    },
+    {
+      "dia": 3, "data": "Qua",
+      "manha":  { "pilar": "psicologia_trader",   "tema": "5 erros que destroem traders",            "hook": "Você já cometeu pelo menos 3 desses." },
+      "noite":  { "pilar": "conceito_tecnico",     "tema": "RSI — como usar com disciplina estoica", "hook": "Um número entre 0 e 100. Use com frieza." }
+    },
+    {
+      "dia": 4, "data": "Qui",
+      "manha":  { "pilar": "analise_btc",          "tema": "BTC retesta suporte — zona de decisão",  "hook": "Momento crucial. Viés definido." },
+      "noite":  { "pilar": "marco_aurelio",         "tema": "Meditações — aceitar o que não controla","hook": "Epicteto sabia. E você, já aprendeu?" }
+    },
+    {
+      "dia": 5, "data": "Sex",
+      "manha":  { "pilar": "erros_regras",          "tema": "5 regras do mercado que salvam bancas",  "hook": "Salva antes de abrir a próxima operação." },
+      "noite":  { "pilar": "bastidores",             "tema": "Semana em revisão — 3 aprendizados",     "hook": "O mercado ensinou. Você ouviu?" }
+    },
+    {
+      "dia": 6, "data": "Sáb",
+      "manha":  { "pilar": "educacao_candles",      "tema": "Como ler candles — guia completo",        "hook": "O candle mostra a emoção do mercado." },
+      "noite":  { "pilar": "frase_motivacional",    "tema": "Disciplina é o único edge real",          "hook": "Sem sistema. Sem resultado." }
+    },
+    {
+      "dia": 7, "data": "Dom",
+      "manha":  { "pilar": "setup_semana",           "tema": "Setups BTC, ETH e EUR/USD — semana 2",   "hook": "Planejado. Disciplinado. Pronto." },
+      "noite":  { "pilar": "reflexao_estoica",       "tema": "O que você controlou essa semana?",      "hook": "Fim de semana. Hora de rever, não de operar." }
+    },
+    {
+      "dia": 8, "data": "Seg",
+      "manha":  { "pilar": "analise_tecnica",        "tema": "EUR/USD — range comprimido, breakout iminente", "hook": "Forex na mira. Nível chave definido." },
+      "noite":  { "pilar": "quote_estoica",           "tema": "Sêneca — a brevidade do tempo",          "hook": "Cada operação é única. Não desperdice." }
+    },
+    {
+      "dia": 9, "data": "Ter",
+      "manha":  { "pilar": "setup_priceaction",      "tema": "Pin Bar em resistência — sinal de reversão", "hook": "Um candle vale mais que mil indicadores." },
+      "noite":  { "pilar": "gestao_risco",            "tema": "RR 1:2 — por que nunca operar abaixo disso", "hook": "Matemática simples. Resultado consistente." }
+    },
+    {
+      "dia": 10, "data": "Qua",
+      "manha":  { "pilar": "psicologia_trader",      "tema": "Revenge trading — o assassino silencioso", "hook": "A perda já aconteceu. Mas você ainda pode quebrar." },
+      "noite":  { "pilar": "conceito_tecnico",        "tema": "Médias Móveis — EMA 21 e EMA 50",         "hook": "Duas linhas. Uma direção. Zero ruído." }
+    },
+    {
+      "dia": 11, "data": "Qui",
+      "manha":  { "pilar": "analise_btc",             "tema": "BTC acima de resistência — confirmação necessária", "hook": "Não antecipe. Espere o fechamento." },
+      "noite":  { "pilar": "marco_aurelio",            "tema": "Meditações — agir com virtude, não com ganância", "hook": "O imperador também tinha impulsos. Ele os domou." }
+    },
+    {
+      "dia": 12, "data": "Sex",
+      "manha":  { "pilar": "erros_regras",             "tema": "5 erros do trader iniciante",             "hook": "Todo expert já cometeu esses 5." },
+      "noite":  { "pilar": "bastidores",                "tema": "Performance da semana — análise honesta",  "hook": "Transparência é a base da evolução." }
+    },
+    {
+      "dia": 13, "data": "Sáb",
+      "manha":  { "pilar": "educacao_candles",         "tema": "Doji — indecisão ou reversão?",           "hook": "Um candle sem corpo. Muito a dizer." },
+      "noite":  { "pilar": "frase_motivacional",       "tema": "Consistência bate performance",            "hook": "Devagar. Sempre. Todos os dias." }
+    },
+    {
+      "dia": 14, "data": "Dom",
+      "manha":  { "pilar": "setup_semana",              "tema": "Setups Gold, BTC e GBP/USD — semana 3",   "hook": "3 ativos. 3 planos. 0 improvisos." },
+      "noite":  { "pilar": "reflexao_estoica",          "tema": "Epicteto — o que depende de você",        "hook": "Duas semanas. Você evoluiu?" }
+    },
+    {
+      "dia": 15, "data": "Seg",
+      "manha":  { "pilar": "analise_tecnica",           "tema": "GOLD — suporte em zona histórica",        "hook": "Ouro na mira. Zona de acúmulo." },
+      "noite":  { "pilar": "quote_estoica",              "tema": "Marco Aurélio — força interior vs mercado", "hook": "O mercado testa. Você resiste." }
+    },
+    {
+      "dia": 16, "data": "Ter",
+      "manha":  { "pilar": "setup_priceaction",         "tema": "Inside Bar — aguardar o breakout",        "hook": "Paciência é uma estratégia. Não uma fraqueza." },
+      "noite":  { "pilar": "gestao_risco",               "tema": "Drawdown máximo — defina antes de começar", "hook": "Quanto você aceita perder? Seja honesto." }
+    },
+    {
+      "dia": 17, "data": "Qua",
+      "manha":  { "pilar": "psicologia_trader",         "tema": "Overtrading — mais operações, menos lucro", "hook": "Menos é mais. Sempre foi." },
+      "noite":  { "pilar": "conceito_tecnico",           "tema": "Fibonacci — níveis que o mercado respeita", "hook": "Números de 800 anos atrás. Ainda funcionam." }
+    },
+    {
+      "dia": 18, "data": "Qui",
+      "manha":  { "pilar": "analise_btc",                "tema": "BTC — padrão de continuação no semanal",  "hook": "O gráfico fala. Você sabe ouvir?" },
+      "noite":  { "pilar": "marco_aurelio",               "tema": "Meditações — disciplina diária",          "hook": "Não é uma habilidade. É um hábito." }
+    },
+    {
+      "dia": 19, "data": "Sex",
+      "manha":  { "pilar": "erros_regras",                "tema": "5 regras de ouro para gestão de banca",  "hook": "Proteja o capital. Lucro vem depois." },
+      "noite":  { "pilar": "bastidores",                   "tema": "O setup que quase operamos — e por que não entramos", "hook": "Às vezes, não operar é a melhor operação." }
+    },
+    {
+      "dia": 20, "data": "Sáb",
+      "manha":  { "pilar": "educacao_candles",            "tema": "Engolfo de Baixa — sinal de reversão",   "hook": "Um candle engole o anterior. E o mercado vira." },
+      "noite":  { "pilar": "frase_motivacional",          "tema": "O mercado recompensa o paciente",         "hook": "Sua maior vantagem: não precisar operar hoje." }
+    },
+    {
+      "dia": 21, "data": "Dom",
+      "manha":  { "pilar": "setup_semana",                 "tema": "Setups BTC, ETH e NASDAQ — semana 4",    "hook": "3 semanas de disciplina. Semana 4 começa." },
+      "noite":  { "pilar": "reflexao_estoica",             "tema": "Sêneca — não temer a perda",              "hook": "21 dias. O que o mercado te ensinou?" }
+    },
+    {
+      "dia": 22, "data": "Seg",
+      "manha":  { "pilar": "analise_tecnica",              "tema": "NASDAQ — tendência de alta intacta",      "hook": "Índices na mira. Tendência define tudo." },
+      "noite":  { "pilar": "quote_estoica",                 "tema": "Epicteto — escolha suas batalhas",        "hook": "Não entre em toda operação. Escolha as suas." }
+    },
+    {
+      "dia": 23, "data": "Ter",
+      "manha":  { "pilar": "setup_priceaction",            "tema": "Double Bottom — reversão clássica",       "hook": "Dois fundos. Uma oportunidade." },
+      "noite":  { "pilar": "gestao_risco",                  "tema": "Tamanho de posição — calculando com precisão", "hook": "Não é sorte. É matemática." }
+    },
+    {
+      "dia": 24, "data": "Qua",
+      "manha":  { "pilar": "psicologia_trader",            "tema": "FOMO — o inimigo mais caro do trader",   "hook": "O trem não perdeu. Outro vem." },
+      "noite":  { "pilar": "conceito_tecnico",              "tema": "Volume — o segredo que a maioria ignora", "hook": "Preço mente. Volume não." }
+    },
+    {
+      "dia": 25, "data": "Qui",
+      "manha":  { "pilar": "analise_btc",                   "tema": "BTC — confluência de suportes no diário", "hook": "Quando tudo aponta para o mesmo ponto." },
+      "noite":  { "pilar": "marco_aurelio",                  "tema": "Meditações — aceitar perdas com equanimidade", "hook": "A perda não te define. A reação sim." }
+    },
+    {
+      "dia": 26, "data": "Sex",
+      "manha":  { "pilar": "erros_regras",                   "tema": "5 hábitos de traders consistentes",      "hook": "Não é talento. São hábitos repetidos." },
+      "noite":  { "pilar": "bastidores",                      "tema": "Fechamento do mês — resultados e lições", "hook": "30 dias. Honestidade total." }
+    },
+    {
+      "dia": 27, "data": "Sáb",
+      "manha":  { "pilar": "educacao_candles",               "tema": "Hammer — o martelo que reverte tendências","hook": "Pequeno corpo. Grande sinal." },
+      "noite":  { "pilar": "frase_motivacional",             "tema": "Edge não é indicador. Edge é processo.",  "hook": "Processo. Todo dia. Sem exceção." }
+    },
+    {
+      "dia": 28, "data": "Dom",
+      "manha":  { "pilar": "setup_semana",                    "tema": "Planejamento — mês 2 começa",             "hook": "30 dias de base. Agora vamos escalar." },
+      "noite":  { "pilar": "reflexao_estoica",                "tema": "Marco Aurélio — um mês de crescimento",   "hook": "30 dias. Onde você estava. Onde está." }
+    },
+    {
+      "dia": 29, "data": "Seg",
+      "manha":  { "pilar": "analise_tecnica",                 "tema": "Abertura do mês 2 — visão macro",         "hook": "Novo mês. Mesma disciplina." },
+      "noite":  { "pilar": "quote_estoica",                    "tema": "Sêneca — o valor do tempo",               "hook": "Cada candle é tempo. Use com sabedoria." }
+    },
+    {
+      "dia": 30, "data": "Ter",
+      "manha":  { "pilar": "setup_priceaction",               "tema": "Melhores setups do mês revisitados",      "hook": "Os padrões se repetem. Você os reconhece?" },
+      "noite":  { "pilar": "gestao_risco",                     "tema": "Revisão completa de gestão — mês 1",      "hook": "Consistência construída. Mês 2 em vista." }
+    }
+  ]
+}

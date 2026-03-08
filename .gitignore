@@ -1,0 +1,8 @@
+.env
+__pycache__/
+output/
+node_modules/
+*.png
+*.html
+*.txt
+security_shield_log.txt

@@ -1,0 +1,119 @@
+//@version=6
+indicator("LW Setup 9.x (Signals + Checklist Table) [2 em 1]", overlay=true, max_labels_count=500)
+
+//======================== Inputs ========================//
+groupCore   = "Setup"
+emaLength   = input.int(9,  "EMA do Setup (fast)", minval=1, group=groupCore)
+useHook     = input.bool(true, "Exigir 'Hook' (EMA cai e vira / sobe e vira)", group=groupCore)
+
+groupTrend  = "Filtro de Tendência"
+useTrend    = input.bool(true, "Usar filtro de tendência (EMA Trend)", group=groupTrend)
+trendLen    = input.int(50, "EMA Trend (filtro)", minval=2, group=groupTrend)
+
+groupVis    = "Visual / Alertas"
+showSignals = input.bool(true, "Plotar BUY/SELL", group=groupVis)
+showTable   = input.bool(true, "Mostrar checklist (tabela)", group=groupVis)
+tablePos    = input.string("Top Right", "Posição da tabela", options=["Top Right","Top Left","Bottom Right","Bottom Left"], group=groupVis)
+
+//======================== Helpers ========================//
+posFromString(p) =>
+    p == "Top Left" ? position.top_left :
+     p == "Bottom Right" ? position.bottom_right :
+      p == "Bottom Left" ? position.bottom_left :
+       position.top_right
+
+okStr(x) => x ? "✅" : "❌"
+
+//======================== Core MAs ======================//
+fastMA  = ta.ema(close, emaLength)
+trendMA = ta.ema(close, trendLen)
+
+plot(fastMA,  color=color.new(color.blue, 0),   linewidth=2, title="EMA Fast")
+plot(useTrend ? trendMA : na, color=color.new(color.orange, 0), linewidth=1, title="EMA Trend")
+
+//======================== Conditions ====================//
+// Histórico mínimo
+okHistory = bar_index >= 6
+
+// Hook (essência Larry Williams 9.x)
+// Long: EMA vinha caindo por 5 barras e “vira” (fastMA[1] < fastMA[0])
+emaFallingHook = okHistory and fastMA[5] > fastMA[4] and fastMA[4] > fastMA[3] and fastMA[3] > fastMA[2] and fastMA[2] > fastMA[1] and fastMA[1] < fastMA
+// Short: EMA vinha subindo por 5 barras e “vira”
+emaRisingHook  = okHistory and fastMA[5] < fastMA[4] and fastMA[4] < fastMA[3] and fastMA[3] < fastMA[2] and fastMA[2] < fastMA[1] and fastMA[1] > fastMA
+
+// Cross do preço com EMA (correto: compara candle anterior com EMA anterior)
+crossUp   = okHistory and close[1] < fastMA[1] and close > fastMA
+crossDown = okHistory and close[1] > fastMA[1] and close < fastMA
+
+// Trend filter
+trendLongOk  = not useTrend or close > trendMA
+trendShortOk = not useTrend or close < trendMA
+
+// Regras finais
+hookLongOk  = not useHook or emaFallingHook
+hookShortOk = not useHook or emaRisingHook
+
+buySignal  = okHistory and hookLongOk  and crossUp   and trendLongOk
+sellSignal = okHistory and hookShortOk and crossDown and trendShortOk
+
+//======================== Plots =========================//
+plotshape(showSignals and buySignal,
+     title="BUY",
+     style=shape.triangleup,
+     location=location.belowbar,
+     color=color.new(color.lime, 0),
+     size=size.small,
+     text="BUY")
+
+plotshape(showSignals and sellSignal,
+     title="SELL",
+     style=shape.triangledown,
+     location=location.abovebar,
+     color=color.new(color.red, 0),
+     size=size.small,
+     text="SELL")
+
+//======================== Alerts =========================//
+alertcondition(buySignal,  title="LW BUY Signal",  message="LW BUY | {{ticker}} | TF={{interval}} | Close={{close}}")
+alertcondition(sellSignal, title="LW SELL Signal", message="LW SELL | {{ticker}} | TF={{interval}} | Close={{close}}")
+
+//======================== Checklist Table ===============//
+var table t = table.new(posFromString(tablePos), 2, 8, border_width=1)
+
+if showTable and barstate.islast
+    // table.clear exige start_row/start_column
+    table.clear(t, 0, 0)
+
+    // Header
+    table.cell(t, 0, 0, "CHECKLIST (LW Setup)", text_color=color.white, bgcolor=color.black)
+    table.cell(t, 1, 0, "STATUS",               text_color=color.white, bgcolor=color.black)
+
+    // Linha 1: histórico
+    table.cell(t, 0, 1, "Histórico suficiente (>=6)")
+    table.cell(t, 1, 1, okStr(okHistory))
+
+    // Linha 2: Hook Long
+    table.cell(t, 0, 2, "Hook LONG (EMA cai e vira)")
+    table.cell(t, 1, 2, useHook ? okStr(emaFallingHook) : "—")
+
+    // Linha 3: Hook Short
+    table.cell(t, 0, 3, "Hook SHORT (EMA sobe e vira)")
+    table.cell(t, 1, 3, useHook ? okStr(emaRisingHook) : "—")
+
+    // Linha 4: Cross Up / Down
+    table.cell(t, 0, 4, "Cross UP (preço > EMA)")
+    table.cell(t, 1, 4, okStr(crossUp))
+
+    table.cell(t, 0, 5, "Cross DOWN (preço < EMA)")
+    table.cell(t, 1, 5, okStr(crossDown))
+
+    // Linha 6: Trend filter
+    table.cell(t, 0, 6, "Trend OK (Long/Short)")
+    trendTxt = not useTrend ? "—" : (trendLongOk ? "Long✅ " : "Long❌ ") + (trendShortOk ? "Short✅" : "Short❌")
+    table.cell(t, 1, 6, trendTxt)
+
+    // Linha 7: Sinal final
+    table.cell(t, 0, 7, "SINAL FINAL")
+    sigTxt = buySignal ? "✅ BUY" : sellSignal ? "✅ SELL" : "—"
+    bg = buySignal ? color.new(color.green, 70) : sellSignal ? color.new(color.red, 70) : color.new(color.gray, 85)
+    table.cell(t, 1, 7, sigTxt, text_color=color.white, bgcolor=bg)
