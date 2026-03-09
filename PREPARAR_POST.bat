@@ -1,23 +1,33 @@
 @echo off
+setlocal enabledelayedexpansion
 echo =========================================
-echo   STOIC MARKET - PREPARADOR DE POST
+echo   STOIC MARKET ELITE v3.0 - PREPARADOR
 echo =========================================
 cd /d "%~dp0"
 
 echo.
-echo [1] Copiando a legenda para o seu Ctrl+V...
-python -c "import pyperclip; f=open('output/disciplina_edge_legenda.txt', 'r', encoding='utf-8'); pyperclip.copy(f.read())"
-
-echo [2] Abrindo a pasta com a imagem...
-explorer "%~dp0output"
-
-echo [3] Abrindo o Instagram no seu navegador...
-start https://www.instagram.com/?hl=pt-br
+echo [1] Buscando a legenda mais recente...
+python -c "import glob, os, pyperclip; output_dir='output'; files=glob.glob(os.path.join(output_dir, '*_legenda.txt')); latest=max(files, key=os.path.getmtime) if files else None; pyperclip.copy(open(latest, 'r', encoding='utf-8').read()) if latest else print('X Legenda nao encontrada!')"
 
 echo.
-echo TUDO PRONTO!
-echo 1. No Instagram, clique em Criar (+)
-echo 2. Arraste a imagem da pasta que abriu
-echo 3. Na legenda, aperte Ctrl+V !
+echo [2] Abrindo a pasta de Midia...
+if exist output (
+    explorer "%~dp0output"
+) else (
+    echo X Pasta output nao encontrada. Gere um post primeiro!
+)
+
+echo.
+echo [3] Abrindo Instagram...
+start https://www.instagram.com/
+
+echo.
+echo ✨ TUDO PRONTO!
+echo -----------------------------------------
+echo 1. Clique em Criar (+) no Instagram.
+echo 2. Arraste a imagem da pasta aberta.
+echo 3. Na legenda, aperte CTRL + V.
+echo -----------------------------------------
 echo.
 pause
+
