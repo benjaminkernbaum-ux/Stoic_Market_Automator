@@ -71,16 +71,32 @@ def verificar_status_mercado() -> str:
         return f"⚠️ Erro na busca de dados: {str(e)}"
 
 @mcp.tool()
+def publicar_no_telegram() -> str:
+    """Envia o conteúdo mais recente para o canal do Telegram."""
+    try:
+        resultado = subprocess.run(
+            [sys.executable, str(BASE_DIR / "telegram_post.py")],
+            capture_output=True, text=True, cwd=str(BASE_DIR), check=True
+        )
+        return f"📡 Telegram: {resultado.stdout}"
+    except Exception as e:
+        return f"❌ Erro no Telegram: {str(e)}"
+
+@mcp.tool()
 def publicar_automatico() -> str:
-    """Faz o push final para o Instagram (Requer login no .env)."""
+    """Faz o push simultâneo para Instagram e Telegram."""
+    res_insta = ""
     try:
         resultado = subprocess.run(
             [sys.executable, str(BASE_DIR / "post_insta.py")],
             capture_output=True, text=True, cwd=str(BASE_DIR), check=True
         )
-        return f"🚀 Decolagem confirmada!\n{resultado.stdout}"
+        res_insta = f"📸 Instagram: OK\n{resultado.stdout}"
     except Exception as e:
-        return f"❌ Abortar: {str(e)}"
+        res_insta = f"❌ Instagram Erro: {str(e)}"
+
+    res_tele = publicar_no_telegram()
+    return f"{res_insta}\n{res_tele}"
 
 @mcp.resource("output://preview")
 def get_latest_preview() -> str:
@@ -90,6 +106,7 @@ def get_latest_preview() -> str:
     if not files: return "Nenhum post gerado ainda."
     latest = max(files, key=os.path.getmtime)
     return f"Última arte: {latest.name}"
+
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")
