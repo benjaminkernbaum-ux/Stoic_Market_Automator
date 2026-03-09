@@ -1,0 +1,4 @@
+[2026-03-08 22:34:04,006] INFO: 🚀 INICIANDO STOIC AUTOMATOR V3.0 — Turno: NOITE
+[2026-03-08 22:34:04,007] INFO: 📌 Pilar: reflexao_estoica | Tema: O que você controlou essa semana?
+[2026-03-08 22:34:05,074] INFO: HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 400 Bad Request"
+[2026-03-08 22:34:05,077] ERROR: Erro na API Claude: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CYreMMb8ZkPUNDkaUGNkJ'}
